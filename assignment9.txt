@@ -1,0 +1,24 @@
+Assignment – 9
+Querying Multiple Tables at Once.
+
+1) Write a query that lists each order number followed by the name of the customer
+who made the order.
+Ans> select ONUM,cname from orders,customers
+     where orders.CNUM = CUSTOMERS.CNUM;
+
+2) Write a query that gives the names of both the salesperson and the customer for
+each order along with the order number.
+Ans> select onum,sname,cname from orders,salespeople,customers
+     where (orders.snum = salespeople.snum AND orders.cnum = customers.cnum);
+
+3) Write a query that produces all customers serviced by salespeople with a
+commission above 12%. Output the customer’s name, the salesperson’s name,
+and the salesperson’s rate of commission.
+Ans> select cname,sname,comm as 'rate of commision' from customers,salespeople
+     where comm>.12;
+
+4) Write a query that calculates the amount of the salesperson’s commission on each
+order by a customer with a rating above 100.
+Ans> select comm from salespeople,customers
+     where salespeople.snum = customers.snum and rating>100;
+     
